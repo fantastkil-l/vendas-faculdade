@@ -25,8 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   adicionarButtons.forEach((button) => {
     button.addEventListener('click', () => {
-      // Localiza o <span> que tem o preço (Ex: "R$ 1.50")
-      const priceSpan = button.parentElement.querySelector('span');
+      // Localiza o <span class="price"> (Ex: "R$ 1.50")
+      const priceSpan = button.parentElement.querySelector('.price');
       if (priceSpan) {
         // Remove "R$" e converte para número
         const rawPrice = priceSpan.textContent.replace('R$', '').trim();
