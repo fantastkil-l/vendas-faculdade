@@ -5,34 +5,35 @@
   box-sizing: border-box;
 }
 
-/* Body */
+/* Fonte e fundo geral (Dark Theme) */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f2f2f2;
-  color: #333;
+  font-family: 'Roboto', sans-serif;
+  background-color: #121212; /* Fundo escuro */
+  color: #fff; /* Texto claro */
 }
 
-/* Container principal */
+/* Container centralizado, fundo mais claro que o body */
 .container {
   max-width: 800px;
   margin: 20px auto;
-  background-color: #fff;
+  background-color: #222; /* Tom de cinza escuro */
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-/* Títulos */
+/* Título */
 h2 {
   text-align: center;
   margin-bottom: 20px;
+  font-weight: 700;
 }
 
-/* Produtos */
+/* Lista de Produtos */
 .produto-item {
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #444;
   padding: 15px 0;
   justify-content: space-between;
 }
@@ -52,14 +53,15 @@ h2 {
 .info h3 {
   margin-bottom: 5px;
   font-size: 1.1rem;
+  color: #fff;
 }
 
 .info p {
   font-size: 0.9rem;
-  color: #555;
+  color: #ccc;
 }
 
-/* Preço e Botão */
+/* Preço e Botão Adicionar */
 .preco {
   text-align: right;
 }
@@ -68,31 +70,35 @@ h2 {
   display: block;
   font-weight: bold;
   margin-bottom: 5px;
+  color: #fff;
 }
 
+/* Botão Adicionar: destaque */
 .adicionar {
-  background-color: #28a745;
-  color: #fff;
+  background-color: #03DAC5; /* Cor de destaque */
+  color: #000; /* Contraste */
   border: none;
   padding: 8px 12px;
   cursor: pointer;
   border-radius: 4px;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .adicionar:hover {
-  background-color: #218838;
+  background-color: #01b4a1; /* Efeito hover */
+  transform: scale(1.05);
 }
 
-/* Pagamento */
+/* Seção de Pagamento */
 #total-compra {
   font-weight: bold;
-  color: red;
+  color: #ff4081; /* Cor de destaque para o total */
   margin: 10px 0;
   text-align: center;
+  font-size: 1.2rem;
 }
 
-/* QR Code Estático */
+/* QR Code Estático: tamanho menor */
 .qrcode-container {
   display: flex;
   justify-content: center;
@@ -100,28 +106,34 @@ h2 {
 }
 
 .qrcode-container img {
-  max-width: 100%;
+  width: 200px; 
+  height: 200px;
+  object-fit: contain;
+  border: 2px solid #ff4081; /* Borda para destacar */
+  border-radius: 8px;
 }
 
 /* Chave Pix e Botão Copiar */
 #chave-pix {
   text-align: center;
   margin-bottom: 10px;
+  color: #fff;
 }
 
-/* Centraliza o botão Copiar no desktop e mobile */
+/* Botão Copiar: mesmo estilo do Adicionar */
 button {
-  background-color: #007bff;
-  color: #fff;
+  background-color: #03DAC5;
+  color: #000;
   border: none;
   padding: 8px 12px;
   cursor: pointer;
   border-radius: 4px;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.2s;
   display: block;
   margin: 0 auto;
 }
 
 button:hover {
-  background-color: #0069d9;
+  background-color: #01b4a1;
+  transform: scale(1.05);
 }
