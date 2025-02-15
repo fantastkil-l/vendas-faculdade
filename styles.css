@@ -92,11 +92,15 @@ h2 {
   text-align: center;
 }
 
-/* QR Code Container */
+/* QR Code Estático */
 .qrcode-container {
   display: flex;
   justify-content: center;
   margin: 20px 0;
+}
+
+.qrcode-container img {
+  max-width: 100%;
 }
 
 /* Chave Pix e Botão Copiar */
