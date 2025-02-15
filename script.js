@@ -20,22 +20,48 @@ function carregarEstoque() {
         let img = document.createElement('img');
         img.src = produto.imagem;
         img.alt = item;
-        img.width = 50;  // Define um tamanho fixo para garantir exibição
+        img.width = 60;
 
         let infoDiv = document.createElement('div');
         infoDiv.classList.add('produto-info');
-        infoDiv.innerHTML = `<strong>${item.replace("_", " ")}</strong><br>Quantidade: ${produto.quantidade}`;
+        infoDiv.innerHTML = `<strong>${item.replace("_", " ")}</strong><br>Quantidade disponível: ${produto.quantidade}`;
 
         let preco = document.createElement('span');
         preco.classList.add('produto-preco');
         preco.innerText = `R$ ${produto.preco.toFixed(2)}`;
 
+        let inputQuantidade = document.createElement('input');
+        inputQuantidade.type = 'number';
+        inputQuantidade.min = 0;
+        inputQuantidade.max = produto.quantidade;
+        inputQuantidade.value = 0;
+        inputQuantidade.classList.add('quantidade-selecao');
+        inputQuantidade.dataset.produto = item;
+        inputQuantidade.addEventListener('input', calcularTotal);
+
         produtoCard.appendChild(img);
         produtoCard.appendChild(infoDiv);
         produtoCard.appendChild(preco);
+        produtoCard.appendChild(inputQuantidade);
 
         estoqueContainer.appendChild(produtoCard);
     }
+}
+
+// Função para calcular o total da compra
+function calcularTotal() {
+    let total = 0;
+    let inputs = document.querySelectorAll('.quantidade-selecao');
+
+    inputs.forEach(input => {
+        let produto = produtos[input.dataset.produto];
+        let quantidade = parseInt(input.value);
+        if (!isNaN(quantidade)) {
+            total += quantidade * produto.preco;
+        }
+    });
+
+    document.getElementById('total-compra').innerText = `Total: R$ ${total.toFixed(2)}`;
 }
 
 // Função para copiar a chave PIX
@@ -46,4 +72,7 @@ function copiarChavePIX() {
 }
 
 // Carrega o estoque automaticamente ao abrir a página
-window.onload = carregarEstoque;
+window.onload = () => {
+    carregarEstoque();
+    document.getElementById('total-compra').innerText = "Total: R$ 0.00";
+};
