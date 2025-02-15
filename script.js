@@ -23,10 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const totalCompraElement = document.getElementById('total-compra');
   let total = 0;
 
-  // Gera o QR Code inicial com total = 0
+  // Gera o QR Code inicial (valor 0)
   atualizaQRCodePix(total);
 
-  // Para cada botão de "Adicionar", adiciona um listener de clique
   adicionarButtons.forEach((button) => {
     button.addEventListener('click', () => {
       const priceSpan = button.parentElement.querySelector('span');
@@ -46,24 +45,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /**
  * Gera e atualiza o QR Code Pix de acordo com o total do carrinho.
- * Usamos a biblioteca Pix (JuniorB2SS) para criar o payload e gerar a imagem Base64.
+ * 1) Cria o payload Pix usando a lib Pix (JuniorB2SS).
+ * 2) Desenha o QR Code com a lib qrcode.js a partir do payload.
  */
 function atualizaQRCodePix(total) {
   // Monta o payload Pix
   const brcode = Pix({
     version: '01',
-    key: '4c5a1c62-0a1d-4761-ab63-668faa2adfe0', // Substitua se desejar outra chave
-    name: 'Fulano de Tal',   // Nome do recebedor (máx. 25 chars)
-    city: 'SAO PAULO',       // Cidade do recebedor (máx. 15 chars)
-    transactionId: '***',    // ID da transação (até 25 chars)
-    message: 'Carrinho Faculdade', // Mensagem opcional
-    value: total             // Valor numérico do carrinho
+    key: '4c5a1c62-0a1d-4761-ab63-668faa2adfe0', // Altere se quiser outra chave
+    name: 'Fulano de Tal',   // Máximo 25 caracteres
+    city: 'SAOPAULO',        // Máximo 15 caracteres, sem espaços ou acentos
+    transactionId: '***',    // Até 25 chars
+    message: 'Carrinho Online',
+    value: total
   });
 
-  // Gera a imagem do QR Code em Base64
-  const base64QrCode = brcode.base64();
+  // Payload EMV (texto)
+  const payload = brcode.payload();
 
-  // Substitui a imagem <img id="qrcode-pix"> pelo QR Code gerado
-  const qrCodeImg = document.getElementById('qrcode-pix');
-  qrCodeImg.src = base64QrCode;
+  // Limpa o container do QR Code antes de redesenhar
+  const qrcodeDiv = document.getElementById('qrcode-pix');
+  qrcodeDiv.innerHTML = '';
+
+  // Cria um novo QR Code usando a biblioteca qrcode.js
+  new QRCode(qrcodeDiv, {
+    text: payload,
+    width: 200,
+    height: 200
+  });
 }
