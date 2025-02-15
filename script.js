@@ -20,7 +20,7 @@ function carregarEstoque() {
         let img = document.createElement('img');
         img.src = produto.imagem;
         img.alt = item;
-        img.width = 100;  // Define um tamanho fixo para garantir exibição
+        img.width = 50;  // Define um tamanho fixo para garantir exibição
 
         let infoDiv = document.createElement('div');
         infoDiv.classList.add('produto-info');
@@ -38,7 +38,6 @@ function carregarEstoque() {
     }
 }
 
-
 // Função para copiar a chave PIX
 function copiarChavePIX() {
     let chave = "SUA-CHAVE-PIX-ALEATÓRIA";
@@ -47,4 +46,4 @@ function copiarChavePIX() {
 }
 
 // Carrega o estoque automaticamente ao abrir a página
-carregarEstoque();
+window.onload = carregarEstoque;
