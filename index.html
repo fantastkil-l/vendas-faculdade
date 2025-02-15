@@ -9,20 +9,21 @@
 </head>
 <body>
 
+  <!-- Botão flutuante no mobile -->
+  <a href="cart.html" class="cart-floating">Carrinho</a>
+
   <div class="container">
     <h1>Catálogo de Produtos</h1>
     
     <!-- Lista de Produtos (grid) -->
-    <div id="product-list" class="grid-produtos">
-      <!-- Será preenchido dinamicamente pelo catalog.js -->
-    </div>
+    <div id="product-list" class="grid-produtos"></div>
 
-    <!-- Total (apenas aparece após o 1º item ser adicionado) -->
+    <!-- Total (apenas aparece após o 1º item) -->
     <p id="total-compra">Total: R$ 0.00</p>
 
-    <!-- Botão para ver carrinho -->
+    <!-- Botão normal "Ver Carrinho" (some no mobile, se quiser) -->
     <div style="text-align: center; margin-top: 20px;">
-      <a href="cart.html" style="text-decoration: none;">
+      <a href="cart.html" class="ver-carrinho-normal" style="text-decoration: none;">
         <button>Ver Carrinho</button>
       </a>
     </div>
