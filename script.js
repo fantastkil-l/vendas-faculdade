@@ -29,7 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
     button.addEventListener('click', () => {
       // Encontra o elemento <span> que contém o preço dentro do mesmo "produto-item"
       const priceSpan = button.parentElement.querySelector('span');
-      
       if (priceSpan) {
         // Exemplo de priceSpan.textContent: "R$ 1.50"
         const rawPrice = priceSpan.textContent.replace('R$', '').trim();
