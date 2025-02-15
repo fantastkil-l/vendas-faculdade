@@ -12,17 +12,7 @@ body {
   color: #333;
 }
 
-/* Cabeçalho */
-header {
-  background-color: #333;
-  color: #fff;
-  padding: 20px 0;
-  text-align: center;
-}
-
-header h1 {
-  margin: 0;
-}
+/* Removido o header (não há mais "Vendas da Faculdade") */
 
 /* Container principal */
 .container {
@@ -46,6 +36,8 @@ h2 {
   align-items: center;
   border-bottom: 1px solid #ddd;
   padding: 15px 0;
+  /* Adicionado para alinhar melhor no mobile */
+  justify-content: space-between;
 }
 
 .produto-item img {
