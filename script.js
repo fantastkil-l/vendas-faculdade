@@ -29,13 +29,11 @@ document.addEventListener('DOMContentLoaded', () => {
       // Encontra o elemento <span> que contém o preço dentro do mesmo "produto-item"
       const priceSpan = button.parentElement.querySelector('span');
       if (priceSpan) {
-        // Exemplo de priceSpan.textContent: "R$ 1.50"
         const rawPrice = priceSpan.textContent.replace('R$', '').trim();
         const price = parseFloat(rawPrice);
 
         if (!isNaN(price)) {
           total += price;
-          // Atualiza o elemento #total-compra com o novo valor
           totalCompraElement.textContent = `Total: R$ ${total.toFixed(2)}`;
         }
       }
