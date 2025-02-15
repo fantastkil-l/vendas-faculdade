@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vendas da Faculdade</title>
-  <!-- Arquivo de estilos (styles.css) -->
-  <link rel="stylesheet" href="styles.css" />
+  <!-- Seu CSS -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Biblioteca Pix para gerar o payload e o QR Code -->
   <script src="https://cdn.jsdelivr.net/gh/JuniorB2SS/pix@v2.2.0/dist/index.min.js"></script>
-  <!-- Arquivo de script (script.js) -->
+  <!-- Seu JavaScript -->
   <script src="script.js" defer></script>
 </head>
 <body>
-
-  <!-- Container principal (sem o texto "Vendas da Faculdade" no topo) -->
   <div class="container">
-    <!-- Título do Catálogo de Produtos -->
     <h2>Catálogo de Produtos</h2>
 
-    <!-- Lista de Produtos -->
+    <!-- Produto 1 -->
     <div class="produto-item">
-      <img src="pacoquinha.jpg" alt="pacoquinha" />
+      <img src="pacoquinha.jpg" alt="pacoquinha">
       <div class="info">
         <h3>pacoquinha</h3>
         <p>Quantidade: 40</p>
@@ -30,8 +28,9 @@
       </div>
     </div>
 
+    <!-- Produto 2 -->
     <div class="produto-item">
-      <img src="freegells.jpg" alt="freegells" />
+      <img src="freegells.jpg" alt="freegells">
       <div class="info">
         <h3>freegells</h3>
         <p>Quantidade: 20</p>
@@ -42,8 +41,9 @@
       </div>
     </div>
 
+    <!-- Produto 3 -->
     <div class="produto-item">
-      <img src="salgadinho_torcida.jpg" alt="salgadinho torcida" />
+      <img src="salgadinho_torcida.jpg" alt="salgadinho torcida">
       <div class="info">
         <h3>salgadinho torcida</h3>
         <p>Quantidade: 8</p>
@@ -54,10 +54,27 @@
       </div>
     </div>
 
+    <!-- Produto 4 -->
     <div class="produto-item">
-      <img src="biscoitos.jpg" alt="biscoitos" />
+      <img src="biscoitos.jpg" alt="biscoitos">
       <div class="info">
         <h3>biscoitos</h3>
         <p>Quantidade: 15</p>
       </div>
-      <
+      <div class="preco">
+        <span>R$ 3.00</span>
+        <button class="adicionar">Adicionar</button>
+      </div>
+    </div>
+
+    <!-- Seção de Pagamento -->
+    <h2>Pagamento</h2>
+    <p id="total-compra">Total: R$ 0.00</p>
+
+    <!-- Área do QR Code -->
+    <div class="qrcode-container">
+      <img id="qrcode-pix" src="qrcode.png" alt="QR Code do PIX">
+    </div>
+  </div>
+</body>
+</html>
