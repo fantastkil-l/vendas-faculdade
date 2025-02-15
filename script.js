@@ -6,7 +6,6 @@ function copiarChavePIX() {
   const chavePixElement = document.getElementById('chave-pix');
   const chave = chavePixElement.textContent.trim();
 
-  // Tenta copiar usando a API Clipboard
   navigator.clipboard.writeText(chave)
     .then(() => {
       alert('Chave PIX copiada com sucesso!');
