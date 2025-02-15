@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
@@ -26,6 +26,7 @@ body {
 h1, h2 {
     margin-bottom: 15px;
     color: #333;
+    font-weight: 600;
 }
 
 /* Estilo dos produtos */
@@ -39,27 +40,35 @@ h1, h2 {
     display: flex;
     align-items: center;
     background: #fff;
-    padding: 10px;
+    padding: 15px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     justify-content: space-between;
 }
 
 .produto-card img {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     border-radius: 5px;
     object-fit: cover;
-    margin-right: 10px;
+    margin-right: 15px;
 }
 
 .produto-info {
     flex-grow: 1;
     text-align: left;
+    font-size: 14px;
+    color: #555;
+}
+
+.produto-info strong {
+    font-size: 16px;
+    color: #222;
 }
 
 .produto-preco {
     font-weight: bold;
+    font-size: 16px;
     color: #007bff;
 }
 
@@ -72,6 +81,7 @@ button {
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
+    font-size: 14px;
 }
 
 button:hover {
@@ -84,8 +94,15 @@ button:hover {
 }
 
 .qrcode-container img {
-    width: 150px;
+    width: 180px;
     margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.qrcode-container p {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
 }
 
 /* Responsividade */
