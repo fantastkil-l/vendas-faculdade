@@ -1,9 +1,9 @@
 // Dados do estoque com imagens e preços
 const produtos = {
-    "pacoquinha": { "quantidade": 40, "preco": 1.50, "imagem": "imagens/pacoquinha.jpg" },
-    "freegells": { "quantidade": 24, "preco": 2.00, "imagem": "imagens/freegells.jpg" },
-    "salgadinho_torcida": { "quantidade": 8, "preco": 4.50, "imagem": "imagens/salgadinho_torcida.jpg" },
-    "biscoitos": { "quantidade": 6, "preco": 3.00, "imagem": "imagens/biscoitos.jpg" }
+    "pacoquinha": { "quantidade": 40, "preco": 1.50, "imagem": "pacoquinha.jpg" },
+    "freegells": { "quantidade": 24, "preco": 2.00, "imagem": "freegells.jpg" },
+    "salgadinho_torcida": { "quantidade": 8, "preco": 4.50, "imagem": "salgadinho_torcida.jpg" },
+    "biscoitos": { "quantidade": 6, "preco": 3.00, "imagem": "biscoitos.jpg" }
 };
 
 // Função para carregar o estoque e exibir os produtos
