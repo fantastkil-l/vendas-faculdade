@@ -1,64 +1,43 @@
-/**
- * Copiar a chave PIX ao clicar no botão
- */
-function copiarChavePIX() {
-  const chavePixElement = document.getElementById('chave-pix');
-  const chave = chavePixElement.textContent.trim();
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carrinho de Compras</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
 
-  navigator.clipboard.writeText(chave)
-    .then(() => {
-      alert('Chave PIX copiada com sucesso!');
-    })
-    .catch((err) => {
-      console.error('Erro ao copiar a chave PIX:', err);
-    });
-}
+  <div class="container">
+    <h1>Carrinho</h1>
 
-// Carrega o carrinho e pontos do localStorage
-let cart = JSON.parse(localStorage.getItem('cart')) || { items: [], total: 0 };
-let points = parseInt(localStorage.getItem('points'), 10) || 0;
+    <!-- Lista de itens do carrinho -->
+    <div id="cart-items"></div>
 
-const cartItemsDiv = document.getElementById('cart-items');
-const cartTotal = document.getElementById('cart-total');
-const pointsInfo = document.getElementById('points-info');
+    <!-- Total -->
+    <p id="cart-total">Total: R$ 0.00</p>
 
-/**
- * Renderiza o carrinho
- */
-function renderCart() {
-  cartItemsDiv.innerHTML = '';
+    <!-- Pontos -->
+    <div id="points-info"></div>
 
-  if (cart.items.length === 0) {
-    cartItemsDiv.innerHTML = '<p>Seu carrinho está vazio.</p>';
-    cartTotal.textContent = 'Total: R$ 0.00';
-    pointsInfo.textContent = '';
-    return;
-  }
+    <!-- QR Code e Chave Pix -->
+    <div class="qrcode-container">
+      <img id="qrcode-pix" src="qrcode.png" alt="QR Code do PIX" />
+    </div>
 
-  // Lista de itens
-  cart.items.forEach(item => {
-    const itemDiv = document.createElement('div');
-    itemDiv.classList.add('cart-item');
+    <div class="pix-container">
+      <p id="chave-pix">4c5a1c62-0a1d-4761-ab63-668faa2adfe0</p>
+      <button onclick="copiarChavePIX()">📋 Copiar Chave PIX</button>
+    </div>
 
-    const nameP = document.createElement('p');
-    nameP.textContent = `${item.name} (x${item.qty})`;
+    <!-- Botão para voltar ao catálogo -->
+    <div style="text-align: center; margin-top: 20px;">
+      <a href="index.html" style="text-decoration: none;">
+        <button>Continuar Comprando</button>
+      </a>
+    </div>
+  </div>
 
-    const priceSpan = document.createElement('span');
-    let subTotal = item.price * item.qty;
-    priceSpan.textContent = `R$ ${subTotal.toFixed(2)}`;
-
-    itemDiv.appendChild(nameP);
-    itemDiv.appendChild(priceSpan);
-    cartItemsDiv.appendChild(itemDiv);
-  });
-
-  // Total
-  cartTotal.textContent = `Total: R$ ${cart.total.toFixed(2)}`;
-
-  // Pontos
-  pointsInfo.textContent = `Você possui ${points} pontos! (Descontos em viagens, etc.)`;
-}
-
-// Chama a função
-renderCart();
-
+  <script src="cart.js"></script>
+</body>
+</html>
