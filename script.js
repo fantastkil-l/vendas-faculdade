@@ -17,6 +17,7 @@ function carregarEstoque() {
         let produtoCard = document.createElement('div');
         produtoCard.classList.add('produto-card');
         produtoCard.dataset.produto = item;
+        produtoCard.style.cursor = 'pointer'; // Adiciona cursor de clique
         produtoCard.addEventListener('click', () => adicionarUmItem(item));
 
         let img = document.createElement('img');
@@ -57,7 +58,7 @@ function adicionarUmItem(produtoNome) {
         let quantidadeAtual = parseInt(input.value);
         if (quantidadeAtual < produtos[produtoNome].quantidade) {
             input.value = quantidadeAtual + 1;
-            calcularTotal();
+            input.dispatchEvent(new Event('input')); // Garante a atualização do total
         }
     }
 }
