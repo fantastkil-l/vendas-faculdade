@@ -1,129 +1,163 @@
-/* Reset Geral */
+/* Reset básico */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* Estilização do Body */
 body {
-    background-color: #f5f5f5;
-    text-align: center;
-    padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+/* Cabeçalho com navegação */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+header h1 {
+  margin-bottom: 10px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+nav li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 /* Container principal */
 .container {
-    max-width: 700px;
-    margin: auto;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 800px; /* Largura máxima */
+  margin: 20px auto; /* Centraliza horizontalmente */
+  background-color: #fff; /* Fundo branco */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Títulos */
-h1, h2 {
-    margin-bottom: 15px;
-    color: #333;
-    font-weight: 600;
+/* Título de seções */
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-/* Estilo dos produtos */
-.produtos {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+/* Estilização dos produtos */
+.produto-item {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding: 15px 0;
 }
 
-.produto-card {
-    display: flex;
-    align-items: center;
-    background: #fff;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    justify-content: space-between;
+.produto-item img {
+  width: 60px;
+  height: 60px;
+  border-radius: 5px;
+  margin-right: 15px;
+  object-fit: cover;
 }
 
-.produto-card img {
-    width: 60px;
-    height: 60px;
-    border-radius: 5px;
-    object-fit: cover;
-    margin-right: 15px;
+.info {
+  flex: 1;
 }
 
-.produto-info {
-    flex-grow: 1;
-    text-align: left;
-    font-size: 14px;
-    color: #555;
+.info h3 {
+  margin-bottom: 5px;
+  font-size: 1.1rem;
 }
 
-.produto-info strong {
-    font-size: 16px;
-    color: #222;
+.info p {
+  font-size: 0.9rem;
+  color: #555;
 }
 
-.produto-preco {
-    font-weight: bold;
-    font-size: 16px;
-    color: #007bff;
+/* Preço e botão “Adicionar” */
+.preco {
+  text-align: right;
 }
 
-.quantidade-selecao {
-    width: 50px;
-    text-align: center;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 5px;
+.preco span {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
-/* Total da Compra */
+.adicionar {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.adicionar:hover {
+  background-color: #218838;
+}
+
+/* Seção de Pagamento */
+#pagamento {
+  text-align: center;
+  margin-top: 20px;
+}
+
 #total-compra {
-    font-size: 18px;
-    font-weight: bold;
-    color: #d9534f;
-    margin-top: 10px;
+  font-weight: bold;
+  color: red;
+  margin: 10px 0;
+  text-align: center;
 }
 
-/* Botão de Copiar PIX */
+/* QR Code e Chave PIX */
+.qrcode-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+#chave-pix {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Botões gerais */
 button {
-    background: #007bff;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
-    font-size: 14px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
 }
 
 button:hover {
-    background: #0056b3;
-}
-
-/* QR Code */
-.qrcode-container {
-    margin: 20px 0;
-}
-
-.qrcode-container img {
-    width: 180px;
-    margin-bottom: 10px;
-    border-radius: 10px;
-}
-
-.qrcode-container p {
-    font-size: 14px;
-    font-weight: bold;
-    color: #333;
+  background-color: #0069d9;
 }
 
 /* Responsividade */
-@media (max-width: 600px) {
-    .container {
-        width: 90%;
-    }
+@media (max-width: 768px) {
+  .produto-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .preco {
+    text-align: left;
+    margin-top: 10px;
+  }
 }
