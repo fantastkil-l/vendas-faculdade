@@ -1,4 +1,4 @@
-// Array inicial de produtos (pode ajustar nomes, preços e imagens)
+// Array inicial de produtos
 const initialProducts = [
   { id: 1, name: 'pacoquinha', price: 1.50, quantity: 40, img: 'pacoquinha.jpg' },
   { id: 2, name: 'freegells', price: 2.00, quantity: 20, img: 'freegells.jpg' },
@@ -23,14 +23,14 @@ const totalCompraElement = document.getElementById('total-compra');
  * Renderiza os produtos na tela
  */
 function renderProducts() {
-  productList.innerHTML = ''; // limpa antes de renderizar
+  productList.innerHTML = '';
 
   products.forEach((prod) => {
     // Cria o card
     const card = document.createElement('div');
     card.classList.add('product-card');
 
-    // Container da imagem quadrada
+    // Imagem quadrada
     const imgContainer = document.createElement('div');
     imgContainer.classList.add('image-container');
     const img = document.createElement('img');
@@ -51,13 +51,13 @@ function renderProducts() {
     priceSpan.classList.add('price');
     priceSpan.textContent = `R$ ${prod.price.toFixed(2)}`;
 
-    // Botão Adicionar
-    const addButton = document.createElement('button');
-    addButton.classList.add('adicionar');
-    addButton.textContent = 'Adicionar';
+    // Botão "+" (verde)
+    const plusButton = document.createElement('button');
+    plusButton.classList.add('btn-plus');
+    plusButton.textContent = '+';
 
-    // Evento de clique em "Adicionar"
-    addButton.addEventListener('click', () => {
+    // Evento de clique em "+"
+    plusButton.addEventListener('click', () => {
       if (prod.quantity > 0) {
         // Decrementa o estoque
         prod.quantity -= 1;
@@ -65,7 +65,6 @@ function renderProducts() {
 
         // Atualiza o carrinho
         cart.total += prod.price;
-        // Verifica se o item já existe no carrinho
         let cartItem = cart.items.find(item => item.id === prod.id);
         if (cartItem) {
           cartItem.qty += 1;
@@ -73,7 +72,7 @@ function renderProducts() {
           cart.items.push({ id: prod.id, name: prod.name, price: prod.price, qty: 1 });
         }
 
-        // Atualiza pontos (1 ponto por R$1, arredondando o valor)
+        // Atualiza pontos (1 ponto por R$1, arredondado)
         points += Math.round(prod.price);
 
         // Salva no localStorage
@@ -94,7 +93,7 @@ function renderProducts() {
     card.appendChild(title);
     card.appendChild(qtyText);
     card.appendChild(priceSpan);
-    card.appendChild(addButton);
+    card.appendChild(plusButton);
 
     productList.appendChild(card);
   });
@@ -108,4 +107,3 @@ if (cart.total > 0) {
   totalCompraElement.style.display = 'block';
   totalCompraElement.textContent = `Total: R$ ${cart.total.toFixed(2)}`;
 }
-
