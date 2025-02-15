@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Vendas da Faculdade</title>
   
-  <!-- Fonte Moderna (Roboto) -->
+  <!-- Fonte Moderna (Roboto) - opcional em um layout minimalista -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   
   <!-- CSS principal -->
@@ -16,74 +16,53 @@
 </head>
 <body>
   
-  <!-- Banner Promocional -->
-  <div class="promo-banner">
-    <h1>SUPER PROMOÇÃO</h1>
-    <p>Frete Grátis acima de R$ 20,00! Aproveite hoje!</p>
-    <button class="cta-banner">COMPRAR AGORA</button>
-  </div>
-
+  <!-- Container principal -->
   <div class="container">
+    <!-- Título da página -->
     <h2>Catálogo de Produtos</h2>
 
-    <!-- Produto 1 -->
-    <div class="produto-item">
-      <img src="pacoquinha.jpg" alt="pacoquinha" />
-      <div class="info">
+    <!-- Grid de Produtos -->
+    <div class="product-grid">
+      <!-- Produto 1 -->
+      <div class="product-card">
+        <img src="pacoquinha.jpg" alt="pacoquinha" />
         <h3>pacoquinha</h3>
-        <!-- Mensagem de urgência -->
-        <p>Quantidade: 40 <span class="urgente">Estoque Limitado!</span></p>
-      </div>
-      <div class="preco">
-        <span>R$ 1.50</span>
+        <p>Quantidade: 40</p>
+        <span class="price">R$ 1.50</span>
         <button class="adicionar">Adicionar</button>
       </div>
-    </div>
 
-    <!-- Produto 2 -->
-    <div class="produto-item">
-      <img src="freegells.jpg" alt="freegells" />
-      <div class="info">
+      <!-- Produto 2 -->
+      <div class="product-card">
+        <img src="freegells.jpg" alt="freegells" />
         <h3>freegells</h3>
-        <p>Quantidade: 20 <span class="urgente">Promoção!</span></p>
-      </div>
-      <div class="preco">
-        <span>R$ 2.00</span>
+        <p>Quantidade: 20</p>
+        <span class="price">R$ 2.00</span>
         <button class="adicionar">Adicionar</button>
       </div>
-    </div>
 
-    <!-- Produto 3 -->
-    <div class="produto-item">
-      <img src="salgadinho_torcida.jpg" alt="salgadinho torcida" />
-      <div class="info">
+      <!-- Produto 3 -->
+      <div class="product-card">
+        <img src="salgadinho_torcida.jpg" alt="salgadinho torcida" />
         <h3>salgadinho torcida</h3>
-        <p>Quantidade: 8 <span class="urgente">Restam poucas unidades!</span></p>
-      </div>
-      <div class="preco">
-        <span>R$ 4.50</span>
+        <p>Quantidade: 8</p>
+        <span class="price">R$ 4.50</span>
         <button class="adicionar">Adicionar</button>
       </div>
-    </div>
 
-    <!-- Produto 4 -->
-    <div class="produto-item">
-      <img src="biscoitos.jpg" alt="biscoitos" />
-      <div class="info">
+      <!-- Produto 4 -->
+      <div class="product-card">
+        <img src="biscoitos.jpg" alt="biscoitos" />
         <h3>biscoitos</h3>
-        <p>Quantidade: 15 <span class="urgente">Oferta Especial!</span></p>
-      </div>
-      <div class="preco">
-        <span>R$ 3.00</span>
+        <p>Quantidade: 15</p>
+        <span class="price">R$ 3.00</span>
         <button class="adicionar">Adicionar</button>
       </div>
-    </div>
+    </div> <!-- Fim da product-grid -->
 
     <!-- Seção de Pagamento -->
     <h2>Pagamento</h2>
     <p id="total-compra">Total: R$ 0.00</p>
-    <!-- Mensagem de frete grátis (opcional) -->
-    <p id="frete-gratis-msg" class="frete-gratis-oculto">Parabéns! Você ganhou frete grátis!</p>
 
     <!-- QR Code Estático (use "qrcode.png" no mesmo local) -->
     <div class="qrcode-container">
