@@ -12,15 +12,14 @@
         <h1>Catálogo de Produtos</h1>
         <div id="estoque" class="produtos"></div>
 
-        <h2>Últimos Pedidos</h2>
-        <div id="pedidos"></div>
-
         <h2>Pagamento</h2>
+        <p id="total-compra">Total: R$ 0.00</p>
+
         <div class="qrcode-container">
-            <img src="qrcode.png" alt="QR Code do PIX">
-            <p>SUA-CHAVE-PIX-ALEATÓRIA</p>
-            <button onclick="copiarChavePIX()">📋 Copiar Chave PIX</button>
+            <img id="qrcode-pix" src="qrcode.png" alt="QR Code do PIX">
         </div>
+        <p id="chave-pix">SUA-CHAVE-PIX-ALEATÓRIA</p>
+        <button onclick="copiarChavePIX()">📋 Copiar Chave PIX</button>
     </div>
 </body>
 </html>
