@@ -1,46 +1,127 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const adicionarButtons = document.querySelectorAll('.adicionar');
-  const totalCompraElement = document.getElementById('total-compra');
-  let total = 0;
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  // Gera o QR Code inicial com total 0.00
-  atualizaQRCodePix(total);
+/* Body */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  color: #333;
+}
 
-  adicionarButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      const priceSpan = button.parentElement.querySelector('span');
-      if (priceSpan) {
-        const rawPrice = priceSpan.textContent.replace('R$', '').trim();
-        const price = parseFloat(rawPrice);
-        if (!isNaN(price)) {
-          total += price;
-          totalCompraElement.textContent = `Total: R$ ${total.toFixed(2)}`;
-          // Atualiza o QR Code com o novo total
-          atualizaQRCodePix(total);
-        }
-      }
-    });
-  });
-});
+/* Container principal */
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-/**
- * Função para gerar e atualizar o QR Code Pix de acordo com o total do carrinho.
- */
-function atualizaQRCodePix(total) {
-  // Cria o payload Pix com os dados fornecidos
-  const brcode = Pix({
-    version: '01',
-    key: '4c5a1c62-0a1d-4761-ab63-668faa2adfe0',  // Sua chave Pix
-    name: 'Fulano de Tal',   // Nome do recebedor (máximo 25 caracteres)
-    city: 'SAO PAULO',       // Cidade (máximo 15 caracteres)
-    transactionId: '***',    // Identificador da transação (até 25 chars)
-    message: 'Carrinho Faculdade',
-    value: total           // Valor do carrinho (número, ex: 10.50)
-  });
+/* Títulos */
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-  // Gera o QR Code em Base64
-  const base64QrCode = brcode.base64();
+/* Produtos */
+.produto-item {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding: 15px 0;
+  justify-content: space-between;
+}
 
-  // Atualiza o src da imagem do QR Code
-  document.getElementById('qrcode-pix').src = base64QrCode;
+.produto-item img {
+  width: 60px;
+  height: 60px;
+  border-radius: 5px;
+  margin-right: 15px;
+  object-fit: cover;
+}
+
+.info {
+  flex: 1;
+}
+
+.info h3 {
+  margin-bottom: 5px;
+  font-size: 1.1rem;
+}
+
+.info p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Preço e Botão */
+.preco {
+  text-align: right;
+}
+
+.preco span {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.adicionar {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.adicionar:hover {
+  background-color: #218838;
+}
+
+/* Pagamento */
+#total-compra {
+  font-weight: bold;
+  color: red;
+  margin: 10px 0;
+  text-align: center;
+}
+
+/* QR Code */
+.qrcode-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.qrcode-container img {
+  max-width: 100%;
+}
+
+/* Chave Pix e Botão Copiar */
+#chave-pix {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Centraliza o botão Copiar no desktop e mobile */
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  display: block;
+  margin: 0 auto;
+}
+
+button:hover {
+  background-color: #0069d9;
 }
