@@ -1,93 +1,46 @@
-// Dados do estoque com imagens e preços
-const produtos = {
-    "pacoquinha": { "quantidade": 40, "preco": 1.50, "imagem": "pacoquinha.jpg" },
-    "freegells": { "quantidade": 24, "preco": 2.00, "imagem": "freegells.jpg" },
-    "salgadinho_torcida": { "quantidade": 8, "preco": 4.50, "imagem": "salgadinho_torcida.jpg" },
-    "biscoitos": { "quantidade": 6, "preco": 3.00, "imagem": "biscoitos.jpg" }
-};
-
-// Função para carregar o estoque e exibir os produtos
-function carregarEstoque() {
-    let estoqueContainer = document.getElementById('estoque');
-    estoqueContainer.innerHTML = '';
-
-    for (let item in produtos) {
-        let produto = produtos[item];
-
-        let produtoCard = document.createElement('div');
-        produtoCard.classList.add('produto-card');
-        produtoCard.dataset.produto = item;
-        produtoCard.style.cursor = 'pointer'; // Adiciona cursor de clique
-        produtoCard.addEventListener('click', () => adicionarUmItem(item));
-
-        let img = document.createElement('img');
-        img.src = produto.imagem;
-        img.alt = item;
-        img.width = 60;
-
-        let infoDiv = document.createElement('div');
-        infoDiv.classList.add('produto-info');
-        infoDiv.innerHTML = `<strong>${item.replace("_", " ")}</strong><br>Quantidade disponível: ${produto.quantidade}`;
-
-        let preco = document.createElement('span');
-        preco.classList.add('produto-preco');
-        preco.innerText = `R$ ${produto.preco.toFixed(2)}`;
-
-        let inputQuantidade = document.createElement('input');
-        inputQuantidade.type = 'number';
-        inputQuantidade.min = 0;
-        inputQuantidade.max = produto.quantidade;
-        inputQuantidade.value = 0;
-        inputQuantidade.classList.add('quantidade-selecao');
-        inputQuantidade.dataset.produto = item;
-        inputQuantidade.addEventListener('input', calcularTotal);
-
-        produtoCard.appendChild(img);
-        produtoCard.appendChild(infoDiv);
-        produtoCard.appendChild(preco);
-        produtoCard.appendChild(inputQuantidade);
-
-        estoqueContainer.appendChild(produtoCard);
-    }
-}
-
-// Função para adicionar um item ao carrinho ao clicar no produto
-function adicionarUmItem(produtoNome) {
-    let input = document.querySelector(`input[data-produto='${produtoNome}']`);
-    if (input) {
-        let quantidadeAtual = parseInt(input.value);
-        if (quantidadeAtual < produtos[produtoNome].quantidade) {
-            input.value = quantidadeAtual + 1;
-            input.dispatchEvent(new Event('input')); // Garante a atualização do total
-        }
-    }
-}
-
-// Função para calcular o total da compra
-function calcularTotal() {
-    let total = 0;
-    let inputs = document.querySelectorAll('.quantidade-selecao');
-
-    inputs.forEach(input => {
-        let produto = produtos[input.dataset.produto];
-        let quantidade = parseInt(input.value);
-        if (!isNaN(quantidade)) {
-            total += quantidade * produto.preco;
-        }
-    });
-    
-    document.getElementById('total-compra').innerText = `Total: R$ ${total.toFixed(2)}`;
-}
-
-// Função para copiar a chave PIX
+/**
+ * Função para copiar a chave PIX
+ * É chamada diretamente no HTML (onclick="copiarChavePIX()")
+ */
 function copiarChavePIX() {
-    let chave = "SUA-CHAVE-PIX-ALEATÓRIA";
-    navigator.clipboard.writeText(chave);
-    alert("Chave PIX copiada!");
+  const chavePixElement = document.getElementById('chave-pix');
+  const chave = chavePixElement.textContent.trim();
+
+  // Tenta copiar usando a API Clipboard
+  navigator.clipboard.writeText(chave)
+    .then(() => {
+      alert('Chave PIX copiada com sucesso!');
+    })
+    .catch((err) => {
+      console.error('Erro ao copiar a chave PIX:', err);
+    });
 }
 
-// Carrega o estoque automaticamente ao abrir a página
-window.onload = () => {
-    carregarEstoque();
-    document.getElementById('total-compra').innerText = "Total: R$ 0.00";
-};
+/**
+ * Aguarda o carregamento do DOM para associar eventos aos botões de "Adicionar"
+ */
+document.addEventListener('DOMContentLoaded', () => {
+  const adicionarButtons = document.querySelectorAll('.adicionar');
+  const totalCompraElement = document.getElementById('total-compra');
+  let total = 0; // Variável para armazenar o valor total
+
+  // Para cada botão de "Adicionar", adicionamos um listener de clique
+  adicionarButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      // Encontra o elemento <span> que contém o preço dentro do mesmo "produto-item"
+      const priceSpan = button.parentElement.querySelector('span');
+      
+      if (priceSpan) {
+        // Exemplo de priceSpan.textContent: "R$ 1.50"
+        const rawPrice = priceSpan.textContent.replace('R$', '').trim();
+        const price = parseFloat(rawPrice);
+
+        if (!isNaN(price)) {
+          total += price;
+          // Atualiza o elemento #total-compra com o novo valor
+          totalCompraElement.textContent = `Total: R$ ${total.toFixed(2)}`;
+        }
+      }
+    });
+  });
+});
