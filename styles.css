@@ -44,7 +44,6 @@ h1, h2 {
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     justify-content: space-between;
-    position: relative;
 }
 
 .produto-card img {
@@ -81,6 +80,7 @@ h1, h2 {
     padding: 5px;
 }
 
+/* Total da Compra */
 #total-compra {
     font-size: 18px;
     font-weight: bold;
