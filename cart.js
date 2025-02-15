@@ -19,7 +19,6 @@ let cart = JSON.parse(localStorage.getItem('cart')) || { items: [], total: 0 };
 let points = parseInt(localStorage.getItem('points'), 10) || 0;
 let products = JSON.parse(localStorage.getItem('inventory')) || [];
 
-// Referências
 const cartItemsDiv = document.getElementById('cart-items');
 const cartTotal = document.getElementById('cart-total');
 const pointsInfo = document.getElementById('points-info');
@@ -50,7 +49,7 @@ function renderCart() {
     const priceSpan = document.createElement('span');
     priceSpan.textContent = `R$ ${subTotal.toFixed(2)}`;
 
-    // Botões + e - (para remover)
+    // Botões
     const cartButtonsDiv = document.createElement('div');
     cartButtonsDiv.classList.add('cart-buttons');
 
@@ -81,7 +80,6 @@ function renderCart() {
  * Remove 1 unidade do item no carrinho
  */
 function removeOneItem(item, index) {
-  // Se a quantidade for > 0
   if (item.qty > 0) {
     item.qty -= 1;
     cart.total -= item.price;
@@ -106,6 +104,9 @@ function removeOneItem(item, index) {
 
     // Re-renderiza
     renderCart();
+    // Opcional: Atualizar contagem no catálogo? Precisaríamos de uma
+    // forma de acessar a mesma função 'updateCartCount' do catalog.js,
+    // mas normalmente isso é só atualizado ao voltar ao catálogo.
   }
 }
 
