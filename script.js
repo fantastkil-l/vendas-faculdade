@@ -16,6 +16,8 @@ function carregarEstoque() {
 
         let produtoCard = document.createElement('div');
         produtoCard.classList.add('produto-card');
+        produtoCard.dataset.produto = item;
+        produtoCard.addEventListener('click', () => adicionarUmItem(item));
 
         let img = document.createElement('img');
         img.src = produto.imagem;
@@ -48,6 +50,18 @@ function carregarEstoque() {
     }
 }
 
+// Função para adicionar um item ao carrinho ao clicar no produto
+function adicionarUmItem(produtoNome) {
+    let input = document.querySelector(`input[data-produto='${produtoNome}']`);
+    if (input) {
+        let quantidadeAtual = parseInt(input.value);
+        if (quantidadeAtual < produtos[produtoNome].quantidade) {
+            input.value = quantidadeAtual + 1;
+            calcularTotal();
+        }
+    }
+}
+
 // Função para calcular o total da compra
 function calcularTotal() {
     let total = 0;
@@ -60,7 +74,7 @@ function calcularTotal() {
             total += quantidade * produto.preco;
         }
     });
-
+    
     document.getElementById('total-compra').innerText = `Total: R$ ${total.toFixed(2)}`;
 }
 
