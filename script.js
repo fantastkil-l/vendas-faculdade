@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const rawPrice = priceSpan.textContent.replace('R$', '').trim();
         const price = parseFloat(rawPrice);
         if (!isNaN(price)) {
-          // Soma ao total e atualiza na tela
           total += price;
           totalCompraElement.textContent = `Total: R$ ${total.toFixed(2)}`;
         }
