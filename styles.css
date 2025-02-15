@@ -12,7 +12,7 @@ body {
   color: #333;
 }
 
-/* Cabeçalho com navegação */
+/* Cabeçalho */
 header {
   background-color: #333;
   color: #fff;
@@ -21,21 +21,7 @@ header {
 }
 
 header h1 {
-  margin-bottom: 10px;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 10px;
-}
-
-nav li a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
+  margin: 0;
 }
 
 /* Container principal */
@@ -110,11 +96,6 @@ h2 {
 }
 
 /* Seção de Pagamento */
-#pagamento {
-  text-align: center;
-  margin-top: 20px;
-}
-
 #total-compra {
   font-weight: bold;
   color: red;
@@ -147,17 +128,4 @@ button {
 
 button:hover {
   background-color: #0069d9;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-  .produto-item {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .preco {
-    text-align: left;
-    margin-top: 10px;
-  }
 }
