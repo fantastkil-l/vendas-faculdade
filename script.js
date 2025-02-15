@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const totalCompraElement = document.getElementById('total-compra');
   let total = 0;
 
-  // Para cada botão de "Adicionar", adicionamos um listener de clique
   adicionarButtons.forEach((button) => {
     button.addEventListener('click', () => {
       // Localiza o <span> que tem o preço (Ex: "R$ 1.50")
