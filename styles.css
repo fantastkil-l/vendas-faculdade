@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 
-/* Estilização do Body */
+/* Estilização do body */
 body {
   font-family: Arial, sans-serif;
   background-color: #f2f2f2;
@@ -14,27 +14,27 @@ body {
 
 /* Container principal */
 .container {
-  max-width: 800px; /* Largura máxima */
-  margin: 20px auto; /* Centraliza horizontalmente */
-  background-color: #fff; /* Fundo branco */
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #fff;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Título de seções */
+/* Título das seções */
 h2 {
   text-align: center;
   margin-bottom: 20px;
 }
 
-/* Estilização dos produtos */
+/* Produtos */
 .produto-item {
   display: flex;
   align-items: center;
   border-bottom: 1px solid #ddd;
   padding: 15px 0;
-  justify-content: space-between; /* Mantém alinhado no mobile */
+  justify-content: space-between;
 }
 
 .produto-item img {
@@ -59,7 +59,7 @@ h2 {
   color: #555;
 }
 
-/* Preço e botão “Adicionar” */
+/* Preço e botão de adicionar */
 .preco {
   text-align: right;
 }
@@ -84,7 +84,7 @@ h2 {
   background-color: #218838;
 }
 
-/* Seção de Pagamento */
+/* Seção de pagamento */
 #total-compra {
   font-weight: bold;
   color: red;
@@ -92,35 +92,13 @@ h2 {
   text-align: center;
 }
 
-/* QR Code e Chave PIX */
+/* QR Code */
 .qrcode-container {
   display: flex;
   justify-content: center;
   margin: 20px 0;
 }
 
-/* Div que centraliza a chave PIX e o botão em qualquer tela */
-.pix-key-container {
-  text-align: center;
-  margin: 20px 0;
-}
-
-.pix-key-container #chave-pix {
-  color: #333; /* Garante visibilidade no desktop */
-  margin-bottom: 10px;
-}
-
-/* Botões gerais */
-button {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 8px 12px;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s;
-}
-
-button:hover {
-  background-color: #0069d9;
+.qrcode-container img {
+  max-width: 100%;
 }
