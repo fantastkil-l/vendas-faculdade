@@ -1,1 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carrinho de Compras</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div class="container">
+    <h1>Carrinho</h1>
+
+    <!-- Lista de itens do carrinho -->
+    <div id="cart-items"></div>
+
+    <!-- Total -->
+    <p id="cart-total">Total: R$ 0.00</p>
+
+    <!-- Pontos -->
+    <div id="points-info"></div>
+
+    <!-- QR Code e Chave Pix -->
+    <div class="qrcode-container">
+      <img id="qrcode-pix" src="qrcode.png" alt="QR Code do PIX" />
+    </div>
+    <p id="chave-pix">4c5a1c62-0a1d-4761-ab63-668faa2adfe0</p>
+    <button onclick="copiarChavePIX()">📋 Copiar Chave PIX</button>
+
+    <!-- Botão para voltar ao catálogo -->
+    <div style="text-align: center; margin-top: 20px;">
+      <a href="index.html" style="text-decoration: none;">
+        <button>Continuar Comprando</button>
+      </a>
+    </div>
+  </div>
+
+  <script src="cart.js"></script>
+</body>
+</html>
 
