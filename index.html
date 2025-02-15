@@ -4,17 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Vendas da Faculdade</title>
-
   <!-- CSS principal -->
   <link rel="stylesheet" href="styles.css" />
-
-  <!-- 1) Biblioteca Pix (para gerar o payload Pix) -->
-  <script src="https://cdn.jsdelivr.net/gh/JuniorB2SS/pix@v2.2.0/dist/index.min.js"></script>
-
-  <!-- 2) Biblioteca QRCode.js (para desenhar o QR Code a partir do payload) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-
-  <!-- Seu script principal -->
+  <!-- Script principal -->
   <script src="script.js" defer></script>
 </head>
 <body>
@@ -77,8 +69,10 @@
     <h2>Pagamento</h2>
     <p id="total-compra">Total: R$ 0.00</p>
 
-    <!-- Div onde o QR Code será gerado -->
-    <div id="qrcode-pix" class="qrcode-container"></div>
+    <!-- QR Code Estático (use o arquivo "qrcode.png") -->
+    <div class="qrcode-container">
+      <img id="qrcode-pix" src="qrcode.png" alt="QR Code do PIX" />
+    </div>
 
     <!-- Chave Pix e botão para copiar -->
     <p id="chave-pix">4c5a1c62-0a1d-4761-ab63-668faa2adfe0</p>
