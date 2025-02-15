@@ -1,88 +1,165 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Vendas da Faculdade</title>
-  <!-- Fonte Moderna (Roboto) -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  <!-- CSS principal -->
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  <!-- Cabeçalho simples (opcional) -->
-  <header>
-    <h1>Catálogo de Produtos</h1>
-  </header>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  color: #333;
+}
 
-  <!-- Container principal -->
-  <div class="container">
-    
-    <!-- Grade de Produtos -->
-    <div class="grid-produtos">
-      <!-- Produto 1 -->
-      <div class="product-card">
-        <div class="image-container">
-          <img src="pacoquinha.jpg" alt="pacoquinha" />
-        </div>
-        <h3>pacoquinha</h3>
-        <p>Quantidade: 40</p>
-        <span class="price">R$ 1.50</span>
-        <button class="adicionar">Adicionar</button>
-      </div>
+/* Container principal */
+.container {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+}
 
-      <!-- Produto 2 -->
-      <div class="product-card">
-        <div class="image-container">
-          <img src="freegells.jpg" alt="freegells" />
-        </div>
-        <h3>freegells</h3>
-        <p>Quantidade: 20</p>
-        <span class="price">R$ 2.00</span>
-        <button class="adicionar">Adicionar</button>
-      </div>
+/* Títulos */
+h1, h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-      <!-- Produto 3 -->
-      <div class="product-card">
-        <div class="image-container">
-          <img src="salgadinho_torcida.jpg" alt="salgadinho torcida" />
-        </div>
-        <h3>salgadinho torcida</h3>
-        <p>Quantidade: 8</p>
-        <span class="price">R$ 4.50</span>
-        <button class="adicionar">Adicionar</button>
-      </div>
+/* Grade de Produtos no Catálogo */
+.grid-produtos {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
 
-      <!-- Produto 4 -->
-      <div class="product-card">
-        <div class="image-container">
-          <img src="biscoitos.jpg" alt="biscoitos" />
-        </div>
-        <h3>biscoitos</h3>
-        <p>Quantidade: 15</p>
-        <span class="price">R$ 3.00</span>
-        <button class="adicionar">Adicionar</button>
-      </div>
-    </div>
+/* Card de Produto */
+.product-card {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 15px;
+  text-align: center;
+  background-color: #fafafa;
+  transition: box-shadow 0.2s;
+}
 
-    <!-- Seção de Pagamento -->
-    <section id="pagamento">
-      <h2>Pagamento</h2>
-      <p id="total-compra">Total: R$ 0.00</p>
-      
-      <!-- QR Code Estático -->
-      <div class="qrcode-container">
-        <img id="qrcode-pix" src="qrcode.png" alt="QR Code do PIX" />
-      </div>
+.product-card:hover {
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
 
-      <!-- Chave Pix e botão para copiar -->
-      <p id="chave-pix">4c5a1c62-0a1d-4761-ab63-668faa2adfe0</p>
-      <button onclick="copiarChavePIX()">📋 Copiar Chave PIX</button>
-    </section>
-  </div>
+/* Container da imagem (proporção quadrada) */
+.image-container {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+  overflow: hidden;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
 
-  <!-- Script principal -->
-  <script src="script.js" defer></script>
-</body>
-</html>
+.image-container img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-card h3 {
+  margin-bottom: 8px;
+}
+
+.product-card p {
+  margin-bottom: 8px;
+  color: #666;
+}
+
+.price {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Botão "Adicionar" */
+.adicionar {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.adicionar:hover {
+  background-color: #2980b9;
+  transform: scale(1.05);
+}
+
+/* Total no Catálogo (apenas aparece após 1º item) */
+#total-compra {
+  text-align: center;
+  font-weight: bold;
+  color: #e74c3c;
+  margin-top: 20px;
+  font-size: 1.2rem;
+  display: none; /* inicialmente oculto */
+}
+
+/* Carrinho (cart.html) */
+#cart-items {
+  margin-top: 20px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.cart-item p {
+  margin: 0;
+}
+
+.cart-item span {
+  font-weight: bold;
+}
+
+/* QR Code e PIX */
+.qrcode-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.qrcode-container img {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+}
+
+/* Botões gerais */
+button {
+  background-color: #2ecc71;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #27ae60;
+  transform: scale(1.05);
+}
+
+/* Caixa de pontos (cart.html) */
+#points-info {
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #9b59b6;
+}
