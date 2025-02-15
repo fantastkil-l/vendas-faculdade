@@ -18,6 +18,21 @@ let points = parseInt(localStorage.getItem('points'), 10) || 0;
 // Referências no DOM
 const productList = document.getElementById('product-list');
 const totalCompraElement = document.getElementById('total-compra');
+const cartCountSpan = document.getElementById('cart-count');
+const cartCountDesktopSpan = document.getElementById('cart-count-desktop');
+
+/**
+ * Atualiza o número total de itens no carrinho (somando qty)
+ */
+function updateCartCount() {
+  let totalQty = 0;
+  cart.items.forEach(item => {
+    totalQty += item.qty;
+  });
+  // Atualiza no mobile e no desktop
+  if (cartCountSpan) cartCountSpan.textContent = totalQty;
+  if (cartCountDesktopSpan) cartCountDesktopSpan.textContent = totalQty;
+}
 
 /**
  * Renderiza os produtos na tela
@@ -83,6 +98,9 @@ function renderProducts() {
         // Exibe o total na tela (se estava hidden)
         totalCompraElement.style.display = 'block';
         totalCompraElement.textContent = `Total: R$ ${cart.total.toFixed(2)}`;
+
+        // Atualiza a contagem de itens no botão
+        updateCartCount();
       } else {
         alert('Produto esgotado!');
       }
@@ -107,3 +125,6 @@ if (cart.total > 0) {
   totalCompraElement.style.display = 'block';
   totalCompraElement.textContent = `Total: R$ ${cart.total.toFixed(2)}`;
 }
+
+// Atualiza a contagem de itens ao carregar a página
+updateCartCount();
