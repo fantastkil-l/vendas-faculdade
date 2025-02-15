@@ -20,6 +20,7 @@ function carregarEstoque() {
         let img = document.createElement('img');
         img.src = produto.imagem;
         img.alt = item;
+        img.width = 100;  // Define um tamanho fixo para garantir exibição
 
         let infoDiv = document.createElement('div');
         infoDiv.classList.add('produto-info');
@@ -36,6 +37,7 @@ function carregarEstoque() {
         estoqueContainer.appendChild(produtoCard);
     }
 }
+
 
 // Função para copiar a chave PIX
 function copiarChavePIX() {
