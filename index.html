@@ -4,20 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vendas da Faculdade</title>
-    <script src="script.js" defer></script>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <h1>Catálogo de Produtos</h1>
-    <ul id="estoque"></ul>
-    
-    <h2>Últimos Pedidos</h2>
-    <ul id="pedidos"></ul>
 
-    <h2>Pagamento</h2>
-    <p>Escaneie o QR Code ou copie a chave PIX:</p>
-    <img src="qrcode.png" alt="QR Code do PIX" width="200">
-    <button onclick="copiarChavePIX()">📋 Copiar Chave PIX</button>
-    <p id="chavePix">SUA-CHAVE-PIX-ALEATÓRIA</p>
+    <div class="container">
+        <h1>Catálogo de Produtos</h1>
+        <div id="estoque"></div>
+
+        <h2>Últimos Pedidos</h2>
+        <div id="pedidos"></div>
+
+        <h2>Pagamento</h2>
+        <div class="qrcode-container">
+            <img src="qrcode.png" alt="QR Code do PIX">
+            <p>SUA-CHAVE-PIX-ALEATÓRIA</p>
+            <button onclick="copiarChavePIX()">📋 Copiar Chave PIX</button>
+        </div>
+    </div>
+
 </body>
 </html>
