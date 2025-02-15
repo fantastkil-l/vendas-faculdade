@@ -4,28 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Vendas da Faculdade</title>
-  
-  <!-- Fonte Moderna (Roboto) - opcional em um layout minimalista -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  
+  <!-- Fonte Moderna (Roboto) -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <!-- CSS principal -->
   <link rel="stylesheet" href="styles.css" />
-  
-  <!-- Script principal -->
-  <script src="script.js" defer></script>
 </head>
 <body>
-  
+
+  <!-- Cabeçalho simples (opcional) -->
+  <header>
+    <h1>Catálogo de Produtos</h1>
+  </header>
+
   <!-- Container principal -->
   <div class="container">
-    <!-- Título da página -->
-    <h2>Catálogo de Produtos</h2>
-
-    <!-- Grid de Produtos -->
-    <div class="product-grid">
+    
+    <!-- Grade de Produtos -->
+    <div class="grid-produtos">
       <!-- Produto 1 -->
       <div class="product-card">
-        <img src="pacoquinha.jpg" alt="pacoquinha" />
+        <div class="image-container">
+          <img src="pacoquinha.jpg" alt="pacoquinha" />
+        </div>
         <h3>pacoquinha</h3>
         <p>Quantidade: 40</p>
         <span class="price">R$ 1.50</span>
@@ -34,7 +34,9 @@
 
       <!-- Produto 2 -->
       <div class="product-card">
-        <img src="freegells.jpg" alt="freegells" />
+        <div class="image-container">
+          <img src="freegells.jpg" alt="freegells" />
+        </div>
         <h3>freegells</h3>
         <p>Quantidade: 20</p>
         <span class="price">R$ 2.00</span>
@@ -43,7 +45,9 @@
 
       <!-- Produto 3 -->
       <div class="product-card">
-        <img src="salgadinho_torcida.jpg" alt="salgadinho torcida" />
+        <div class="image-container">
+          <img src="salgadinho_torcida.jpg" alt="salgadinho torcida" />
+        </div>
         <h3>salgadinho torcida</h3>
         <p>Quantidade: 8</p>
         <span class="price">R$ 4.50</span>
@@ -52,26 +56,33 @@
 
       <!-- Produto 4 -->
       <div class="product-card">
-        <img src="biscoitos.jpg" alt="biscoitos" />
+        <div class="image-container">
+          <img src="biscoitos.jpg" alt="biscoitos" />
+        </div>
         <h3>biscoitos</h3>
         <p>Quantidade: 15</p>
         <span class="price">R$ 3.00</span>
         <button class="adicionar">Adicionar</button>
       </div>
-    </div> <!-- Fim da product-grid -->
-
-    <!-- Seção de Pagamento -->
-    <h2>Pagamento</h2>
-    <p id="total-compra">Total: R$ 0.00</p>
-
-    <!-- QR Code Estático (use "qrcode.png" no mesmo local) -->
-    <div class="qrcode-container">
-      <img id="qrcode-pix" src="qrcode.png" alt="QR Code do PIX" />
     </div>
 
-    <!-- Chave Pix e botão para copiar -->
-    <p id="chave-pix">4c5a1c62-0a1d-4761-ab63-668faa2adfe0</p>
-    <button onclick="copiarChavePIX()">📋 Copiar Chave PIX</button>
+    <!-- Seção de Pagamento -->
+    <section id="pagamento">
+      <h2>Pagamento</h2>
+      <p id="total-compra">Total: R$ 0.00</p>
+      
+      <!-- QR Code Estático -->
+      <div class="qrcode-container">
+        <img id="qrcode-pix" src="qrcode.png" alt="QR Code do PIX" />
+      </div>
+
+      <!-- Chave Pix e botão para copiar -->
+      <p id="chave-pix">4c5a1c62-0a1d-4761-ab63-668faa2adfe0</p>
+      <button onclick="copiarChavePIX()">📋 Copiar Chave PIX</button>
+    </section>
   </div>
+
+  <!-- Script principal -->
+  <script src="script.js" defer></script>
 </body>
 </html>
