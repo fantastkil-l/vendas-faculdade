@@ -15,6 +15,14 @@
   <script src="script.js" defer></script>
 </head>
 <body>
+  
+  <!-- Banner Promocional -->
+  <div class="promo-banner">
+    <h1>SUPER PROMOÇÃO</h1>
+    <p>Frete Grátis acima de R$ 20,00! Aproveite hoje!</p>
+    <button class="cta-banner">COMPRAR AGORA</button>
+  </div>
+
   <div class="container">
     <h2>Catálogo de Produtos</h2>
 
@@ -23,7 +31,8 @@
       <img src="pacoquinha.jpg" alt="pacoquinha" />
       <div class="info">
         <h3>pacoquinha</h3>
-        <p>Quantidade: 40</p>
+        <!-- Mensagem de urgência -->
+        <p>Quantidade: 40 <span class="urgente">Estoque Limitado!</span></p>
       </div>
       <div class="preco">
         <span>R$ 1.50</span>
@@ -36,7 +45,7 @@
       <img src="freegells.jpg" alt="freegells" />
       <div class="info">
         <h3>freegells</h3>
-        <p>Quantidade: 20</p>
+        <p>Quantidade: 20 <span class="urgente">Promoção!</span></p>
       </div>
       <div class="preco">
         <span>R$ 2.00</span>
@@ -49,7 +58,7 @@
       <img src="salgadinho_torcida.jpg" alt="salgadinho torcida" />
       <div class="info">
         <h3>salgadinho torcida</h3>
-        <p>Quantidade: 8</p>
+        <p>Quantidade: 8 <span class="urgente">Restam poucas unidades!</span></p>
       </div>
       <div class="preco">
         <span>R$ 4.50</span>
@@ -62,7 +71,7 @@
       <img src="biscoitos.jpg" alt="biscoitos" />
       <div class="info">
         <h3>biscoitos</h3>
-        <p>Quantidade: 15</p>
+        <p>Quantidade: 15 <span class="urgente">Oferta Especial!</span></p>
       </div>
       <div class="preco">
         <span>R$ 3.00</span>
@@ -73,6 +82,8 @@
     <!-- Seção de Pagamento -->
     <h2>Pagamento</h2>
     <p id="total-compra">Total: R$ 0.00</p>
+    <!-- Mensagem de frete grátis (opcional) -->
+    <p id="frete-gratis-msg" class="frete-gratis-oculto">Parabéns! Você ganhou frete grátis!</p>
 
     <!-- QR Code Estático (use "qrcode.png" no mesmo local) -->
     <div class="qrcode-container">
