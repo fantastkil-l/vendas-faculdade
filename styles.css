@@ -5,116 +5,81 @@
   box-sizing: border-box;
 }
 
-/* Fonte e fundo geral (Dark Theme) */
+/* Fonte e fundo geral */
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #121212; /* Fundo escuro */
-  color: #fff; /* Texto claro */
+  background-color: #f9f9f9; /* Fundo claro */
+  color: #333; /* Texto escuro */
 }
 
-/* Banner Promocional */
-.promo-banner {
-  background: linear-gradient(135deg, #FF4081, #F50057);
-  text-align: center;
-  padding: 20px;
-}
-
-.promo-banner h1 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
-
-.promo-banner p {
-  font-size: 1rem;
-  margin-bottom: 15px;
-}
-
-.cta-banner {
-  background-color: #fff;
-  color: #000;
-  border: none;
-  padding: 10px 20px;
-  font-weight: bold;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
-}
-.cta-banner:hover {
-  background-color: #f1f1f1;
-  transform: scale(1.05);
-}
-
-/* Container */
+/* Container principal */
 .container {
-  max-width: 800px;
+  max-width: 900px;
   margin: 20px auto;
-  background-color: #222; /* Tom de cinza escuro */
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-/* Títulos */
+/* Título */
 h2 {
   text-align: center;
   margin-bottom: 20px;
   font-weight: 700;
+  color: #333;
 }
 
-/* Produtos */
-.produto-item {
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #444;
-  padding: 15px 0;
-  justify-content: space-between;
+/* GRID de produtos */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
 }
 
-.produto-item img {
-  width: 60px;
-  height: 60px;
-  border-radius: 5px;
-  margin-right: 15px;
+/* Card do produto */
+.product-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+  padding: 15px;
+  transition: box-shadow 0.2s;
+}
+
+.product-card:hover {
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+.product-card img {
+  width: 100px;
+  height: 100px;
   object-fit: cover;
+  margin-bottom: 10px;
+  border-radius: 4px;
 }
 
-.info {
-  flex: 1;
-}
-
-.info h3 {
+/* Título e texto do card */
+.product-card h3 {
+  font-size: 1rem;
   margin-bottom: 5px;
-  font-size: 1.1rem;
-  color: #fff;
+  color: #333;
 }
 
-.info p {
+.product-card p {
   font-size: 0.9rem;
-  color: #ccc;
+  color: #666;
+  margin-bottom: 10px;
 }
 
-/* Destaque de urgência */
-.urgente {
-  color: #FF4081;
-  font-weight: bold;
-  margin-left: 5px;
-}
-
-/* Preço e Botão Adicionar */
-.preco {
-  text-align: right;
-}
-
-.preco span {
+/* Preço e botão de adicionar */
+.price {
   display: block;
   font-weight: bold;
-  margin-bottom: 5px;
-  color: #fff;
+  margin-bottom: 8px;
+  color: #333;
 }
 
 .adicionar {
-  background-color: #03DAC5; /* Cor de destaque */
-  color: #000; /* Contraste */
+  background-color: #8bc34a; /* Tom verde suave, estilo "food" */
+  color: #fff;
   border: none;
   padding: 8px 12px;
   cursor: pointer;
@@ -123,28 +88,17 @@ h2 {
 }
 
 .adicionar:hover {
-  background-color: #01b4a1; /* Efeito hover */
+  background-color: #7cb342;
   transform: scale(1.05);
 }
 
 /* Seção de Pagamento */
 #total-compra {
   font-weight: bold;
-  color: #ff4081; /* Cor de destaque para o total */
+  color: #d32f2f; /* Vermelho suave para destaque do total */
   margin: 10px 0;
   text-align: center;
-  font-size: 1.2rem;
-}
-
-/* Mensagem de frete grátis (aparecerá se total > 20) */
-#frete-gratis-msg {
-  text-align: center;
-  color: #03DAC5;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-.frete-gratis-oculto {
-  display: none;
+  font-size: 1.1rem;
 }
 
 /* QR Code Estático */
@@ -155,34 +109,32 @@ h2 {
 }
 
 .qrcode-container img {
-  width: 200px; 
-  height: 200px;
+  width: 160px;
+  height: 160px;
   object-fit: contain;
-  border: 2px solid #ff4081; /* Borda para destacar */
-  border-radius: 8px;
 }
 
 /* Chave Pix e Botão Copiar */
 #chave-pix {
   text-align: center;
   margin-bottom: 10px;
-  color: #fff;
+  color: #333;
 }
 
-/* Botão Copiar: mesmo estilo do Adicionar */
+/* Botão Copiar: estilo minimal */
 button {
-  background-color: #03DAC5;
-  color: #000;
+  background-color: #8bc34a;
+  color: #fff;
   border: none;
   padding: 8px 12px;
   cursor: pointer;
   border-radius: 4px;
   transition: background-color 0.3s, transform 0.2s;
   display: block;
-  margin: 0 auto;
+  margin: 0 auto 20px auto;
 }
 
 button:hover {
-  background-color: #01b4a1;
+  background-color: #7cb342;
   transform: scale(1.05);
 }
