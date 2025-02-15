@@ -12,8 +12,6 @@ body {
   color: #333;
 }
 
-/* Removido o header (como na versão anterior) */
-
 /* Container principal */
 .container {
   max-width: 800px; /* Largura máxima */
@@ -36,7 +34,7 @@ h2 {
   align-items: center;
   border-bottom: 1px solid #ddd;
   padding: 15px 0;
-  justify-content: space-between; /* Alinhamento no mobile */
+  justify-content: space-between; /* Mantém alinhado no mobile */
 }
 
 .produto-item img {
@@ -101,8 +99,14 @@ h2 {
   margin: 20px 0;
 }
 
-#chave-pix {
+/* Div que centraliza a chave PIX e o botão em qualquer tela */
+.pix-key-container {
   text-align: center;
+  margin: 20px 0;
+}
+
+.pix-key-container #chave-pix {
+  color: #333; /* Garante visibilidade no desktop */
   margin-bottom: 10px;
 }
 
@@ -119,10 +123,4 @@ button {
 
 button:hover {
   background-color: #0069d9;
-}
-
-/* Centralizar APENAS o botão de copiar PIX (sem alterar o restante) */
-p#chave-pix + button {
-  display: block;
-  margin: 0 auto;
 }
