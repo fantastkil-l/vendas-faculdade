@@ -12,7 +12,7 @@ body {
   color: #333;
 }
 
-/* Removido o header (não há mais "Vendas da Faculdade") */
+/* Removido o header (como na versão anterior) */
 
 /* Container principal */
 .container {
@@ -36,8 +36,7 @@ h2 {
   align-items: center;
   border-bottom: 1px solid #ddd;
   padding: 15px 0;
-  /* Adicionado para alinhar melhor no mobile */
-  justify-content: space-between;
+  justify-content: space-between; /* Alinhamento no mobile */
 }
 
 .produto-item img {
@@ -120,4 +119,10 @@ button {
 
 button:hover {
   background-color: #0069d9;
+}
+
+/* Centralizar APENAS o botão de copiar PIX (sem alterar o restante) */
+p#chave-pix + button {
+  display: block;
+  margin: 0 auto;
 }
