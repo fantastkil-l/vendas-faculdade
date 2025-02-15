@@ -59,7 +59,8 @@ h1, h2 {
 
 .image-container img {
   position: absolute;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -125,7 +126,7 @@ h1, h2 {
 
 /* Botão "Ver Carrinho" flutuante no mobile */
 .cart-floating {
-  display: none; /* some no desktop */
+  display: none; /* não aparece no desktop */
   position: fixed;
   bottom: 20px;
   right: 20px;
@@ -138,7 +139,9 @@ h1, h2 {
   text-decoration: none;
   text-align: center;
   transition: background-color 0.3s, transform 0.2s;
+  z-index: 9999; /* Mantém o botão acima das imagens */
 }
+
 .cart-floating:hover {
   background-color: #fb8c00;
   transform: scale(1.05);
