@@ -12,7 +12,39 @@ body {
   color: #fff; /* Texto claro */
 }
 
-/* Container centralizado, fundo mais claro que o body */
+/* Banner Promocional */
+.promo-banner {
+  background: linear-gradient(135deg, #FF4081, #F50057);
+  text-align: center;
+  padding: 20px;
+}
+
+.promo-banner h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.promo-banner p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.cta-banner {
+  background-color: #fff;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+.cta-banner:hover {
+  background-color: #f1f1f1;
+  transform: scale(1.05);
+}
+
+/* Container */
 .container {
   max-width: 800px;
   margin: 20px auto;
@@ -22,14 +54,14 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-/* Título */
+/* Títulos */
 h2 {
   text-align: center;
   margin-bottom: 20px;
   font-weight: 700;
 }
 
-/* Lista de Produtos */
+/* Produtos */
 .produto-item {
   display: flex;
   align-items: center;
@@ -61,6 +93,13 @@ h2 {
   color: #ccc;
 }
 
+/* Destaque de urgência */
+.urgente {
+  color: #FF4081;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
 /* Preço e Botão Adicionar */
 .preco {
   text-align: right;
@@ -73,7 +112,6 @@ h2 {
   color: #fff;
 }
 
-/* Botão Adicionar: destaque */
 .adicionar {
   background-color: #03DAC5; /* Cor de destaque */
   color: #000; /* Contraste */
@@ -98,7 +136,18 @@ h2 {
   font-size: 1.2rem;
 }
 
-/* QR Code Estático: tamanho menor */
+/* Mensagem de frete grátis (aparecerá se total > 20) */
+#frete-gratis-msg {
+  text-align: center;
+  color: #03DAC5;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.frete-gratis-oculto {
+  display: none;
+}
+
+/* QR Code Estático */
 .qrcode-container {
   display: flex;
   justify-content: center;
