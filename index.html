@@ -10,7 +10,9 @@
 <body>
 
   <!-- Botão flutuante no mobile -->
-  <a href="cart.html" class="cart-floating">Carrinho</a>
+  <a href="cart.html" class="cart-floating" id="cart-floating">
+    Carrinho (<span id="cart-count">0</span>)
+  </a>
 
   <div class="container">
     <h1>Catálogo de Produtos</h1>
@@ -21,10 +23,10 @@
     <!-- Total (apenas aparece após o 1º item) -->
     <p id="total-compra">Total: R$ 0.00</p>
 
-    <!-- Botão normal "Ver Carrinho" (some no mobile, se quiser) -->
+    <!-- Botão normal "Ver Carrinho" (desktop) -->
     <div style="text-align: center; margin-top: 20px;">
       <a href="cart.html" class="ver-carrinho-normal" style="text-decoration: none;">
-        <button>Ver Carrinho</button>
+        <button>Ver Carrinho (<span id="cart-count-desktop">0</span>)</button>
       </a>
     </div>
   </div>
